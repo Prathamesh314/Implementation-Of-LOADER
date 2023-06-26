@@ -1,12 +1,12 @@
 import pandas as pd
 class DisplayCards():
-    def __init__(self, NAME_LIST_PASS_I, TYPES_LIST_PASS_I, ID_LIST_PASS_I, RELADD_LIST_PASS_I, LENGTH_PASS_I,REL_ADD_passI,ANS,COMMENTS):
-        self.NAME_LIST_PASS_I = NAME_LIST_PASS_I
-        self.TYPES_LIST_PASS_I = TYPES_LIST_PASS_I
-        self.ID_LIST_PASS_I = ID_LIST_PASS_I
-        self.RELADD_LIST_PASS_I = RELADD_LIST_PASS_I
-        self.LENGTH_PASS_I = LENGTH_PASS_I
-        self.REL_ADD_passI = REL_ADD_passI
+    def __init__(self, NAME_LIST_PASS, TYPES_LIST_PASS, ID_LIST_PASS, RELADD_LIST_PASS, LENGTH_PASS,REL_ADD_pass,ANS,COMMENTS):
+        self.NAME_LIST_PASS = NAME_LIST_PASS
+        self.TYPES_LIST_PASS = TYPES_LIST_PASS
+        self.ID_LIST_PASS = ID_LIST_PASS
+        self.RELADD_LIST_PASS = RELADD_LIST_PASS
+        self.LENGTH_PASS = LENGTH_PASS
+        self.REL_ADD_pass = REL_ADD_pass
         self.COMMENTS = COMMENTS
         self.ANS = ANS
         self.ESD_DF = pd.DataFrame()
@@ -14,18 +14,18 @@ class DisplayCards():
 
     def CreateESDCard(self):
         dict1 = {
-            "NAME": self.NAME_LIST_PASS_I,
-            "TYPE": self.TYPES_LIST_PASS_I,
-            "ID": self.ID_LIST_PASS_I,
-            "Rel Add": self.RELADD_LIST_PASS_I,
-            "LENGTH": self.LENGTH_PASS_I
+            "NAME": self.NAME_LIST_PASS,
+            "TYPE": self.TYPES_LIST_PASS,
+            "ID": self.ID_LIST_PASS,
+            "Rel Add": self.RELADD_LIST_PASS,
+            "LENGTH": self.LENGTH_PASS
         }
 
         self.ESD_DF = pd.DataFrame(dict1)
 
     def CreateTXTCard(self):
         dict2 = {
-            "Rel Add": self.REL_ADD_passI,
+            "Rel Add": self.REL_ADD_pass,
             "Contents": self.ANS,
             "Comments": self.COMMENTS
         }
