@@ -102,7 +102,7 @@ class Cards:
         return False
 
     def RLD_CARD(self,TXT_CARDS_COMMENTS,ESD_CARD_DICT_ER,ESD_CARD_DICT_SD,ESD_CARD_DICT_LD,TXT_DF):
-        WE_FUCKING_WANT = []
+        WANT = []
         traverler = 0
         TEMPORARY = lambda x: x[2:len(x) - 1]
         # print(PASS_CARDS[0].RESULT)
@@ -112,22 +112,22 @@ class Cards:
             ldlist = []
             for k in _:
                 if k in ESD_CARD_DICT_ER:
-                    WE_FUCKING_WANT.append(_)
+                    WANT.append(_)
                     break
                 elif k in ESD_CARD_DICT_SD:
                     sdlist.append(k)
                 elif k in ESD_CARD_DICT_LD:
                     ldlist.append(k)
             if len(sdlist) >= 1 and len(ldlist) == 0:
-                WE_FUCKING_WANT.append(sdlist)
+                WANT.append(sdlist)
             elif len(ldlist) >= 1 and len(sdlist) == 0:
-                WE_FUCKING_WANT.append(ldlist)
-        WE_FUCKING_WANT = list(filter(lambda x: x in self.RESULT, WE_FUCKING_WANT))
+                WANT.append(ldlist)
+        WANT = list(filter(lambda x: x in self.RESULT, WANT))
         INDICES = {}
         relADDRESSES = []
         rldContent = []
         NUMBERS = [str(i) for i in range(1, 1001)]
-        for k in WE_FUCKING_WANT:
+        for k in WANT:
             idx = self.RESULT.index(k)
             INDICES[idx] = k
             relADDRESSES.append(TXT_DF.iloc[idx]["Rel Add"])
