@@ -1,5 +1,9 @@
 # Implementation of LOADER
 
+### This are Instructions
+
+<img src="Images/Instructions.png" />
+
 ## Here is how it LOOKS
 <table>
   <tr>
