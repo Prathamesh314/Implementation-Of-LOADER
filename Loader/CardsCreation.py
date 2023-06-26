@@ -161,8 +161,6 @@ class Cards:
                     temp_dict[_] = relADDRESSES[J]
                     J += 1
 
-
-
         for i in FLAGS_DICT:
             for j in i:
                 if j in ESD_CARD_DICT_ER:
