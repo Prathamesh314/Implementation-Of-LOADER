@@ -31,3 +31,12 @@ class DisplayCards():
         }
 
         self.TXT_DF = pd.DataFrame(dict2)
+
+    def CreateRLDCard(self,ID_LISTS,FLAGS,ADD_REL):
+        dict3 = {
+            "ESD Id":ID_LISTS,
+            "FLAG":FLAGS,
+            "LENGTH":[4 for i in range(len(FLAGS))],
+            "Rel Add":ADD_REL
+        }
+        self.RLD_DF = pd.DataFrame(dict3)

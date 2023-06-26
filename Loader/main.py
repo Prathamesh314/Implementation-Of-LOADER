@@ -2,9 +2,16 @@ from FILES import *
 from CardsCreation import Cards
 from CardsMaker import *
 from FILES import Files
-
+import pandas as pd
 TOTAL_PASSES = []
 PASSES = 0
+
+def isOperator(sign:str)-> bool:
+    if sign == '+' or sign == '-':
+        return True
+    return False
+
+
 
 with open("input.txt","r") as file:
     lines = file.readlines()
@@ -58,15 +65,16 @@ for i in range(PASSES):
     pass_cards = Cards(PROGRAM_LENGTH[i].keys(),TOTAL_PASSES[i].SYMBOLS)
     pass_cards.ESD_CARD(TOTAL_PASSES[i].ESD_CARD_DICT_SD,TOTAL_PASSES[i].ESD_CARD_DICT_LD,TOTAL_PASSES[i].ESD_CARD_DICT_ER)
     pass_cards.TXT_CARD(TOTAL_PASSES[i].TXT_CARDS_COMMENTS)
-    cards = DisplayCards(pass_cards.NAME_LIST_PASS_I,pass_cards.TYPES_LIST_PASS_I,pass_cards.ID_LIST_PASS_I,pass_cards.RELADD_LIST_PASS_I,pass_cards.LENGTH_PASS_I,pass_cards.REL_ADD_passI,pass_cards.ANS,pass_cards.COMMENTS)
+    cards = DisplayCards(pass_cards.NAME_LIST_PASS,pass_cards.TYPES_LIST_PASS,pass_cards.ID_LIST_PASS,pass_cards.RELADD_LIST_PASS,pass_cards.LENGTH_PASS,pass_cards.REL_ADD_pass,pass_cards.ANS,pass_cards.COMMENTS)
+    cards.CreateESDCard()
+    cards.CreateTXTCard()
+    pass_cards.RLD_CARD(TOTAL_PASSES[i].TXT_CARDS_COMMENTS, TOTAL_PASSES[i].ESD_CARD_DICT_ER,
+                        TOTAL_PASSES[i].ESD_CARD_DICT_SD, TOTAL_PASSES[i].ESD_CARD_DICT_LD, cards.TXT_DF)
+    cards.CreateRLDCard(pass_cards.ID_LISTS,pass_cards.FLAGS,pass_cards.ADD_REL)
     PASS_CARDS.append(pass_cards)
     DISPLAY_CARDS.append(cards)
-
-
-for i in range(PASSES):
-    DISPLAY_CARDS[i].CreateTXTCard()
-    DISPLAY_CARDS[i].CreateESDCard()
 
 for i in range(PASSES):
     print(DISPLAY_CARDS[i].ESD_DF)
     print(DISPLAY_CARDS[i].TXT_DF)
+    print(DISPLAY_CARDS[i].RLD_DF)

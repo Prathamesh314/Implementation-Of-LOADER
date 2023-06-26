@@ -7,7 +7,6 @@ class Files:
         self.TXT_TABLE = []
         self.RLD_CARD = []
         self.SYMBOLS = []
-        # self.PROGRAM_LENGTH = []
         self.TXT_CARDS_COMMENTS = []
         self.ESD_CARD_DICT_SD = {}
         self.ESD_CARD_DICT_ER = {}
