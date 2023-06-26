@@ -6,13 +6,6 @@ import pandas as pd
 TOTAL_PASSES = []
 PASSES = 0
 
-def isOperator(sign:str)-> bool:
-    if sign == '+' or sign == '-':
-        return True
-    return False
-
-
-
 with open("input.txt","r") as file:
     lines = file.readlines()
     for i in lines:
@@ -75,6 +68,14 @@ for i in range(PASSES):
     DISPLAY_CARDS.append(cards)
 
 for i in range(PASSES):
+    print(f"**** PASS {i+1} ****")
+    print("---- ESD CARD ----")
     print(DISPLAY_CARDS[i].ESD_DF)
+    print()
+    print("---- TXT CARD ----")
     print(DISPLAY_CARDS[i].TXT_DF)
+    print()
+    print("---- RLD CARD ----")
     print(DISPLAY_CARDS[i].RLD_DF)
+    print()
+    print()
