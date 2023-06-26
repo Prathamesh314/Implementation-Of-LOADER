@@ -170,4 +170,4 @@ class Cards:
                 elif j in ESD_CARD_DICT_LD:
                     self.ID_LISTS.append("01")
                 self.FLAGS.append(i[j])
-                self.ADD_REL.append(temp_dict[j])
+                self.ADD_REL.append([temp_dict[j]])
