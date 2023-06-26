@@ -16,7 +16,7 @@
     <th>TXT CARD PASS II</th>
   </tr>
   <tr>
-    <td><img src="Images/ESD CARD PASS II" /></td>
-    <td><img src="Images/TXT CARD PASS II" /></td>
+    <td><img src="Images/ESD CARD PASS II.png" /></td>
+    <td><img src="Images/TXT CARD PASS II.png" /></td>
   </tr>
 </table>
