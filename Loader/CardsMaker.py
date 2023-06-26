@@ -11,6 +11,7 @@ class DisplayCards():
         self.ANS = ANS
         self.ESD_DF = pd.DataFrame()
         self.TXT_DF = pd.DataFrame()
+        self.RLD_DF = pd.DataFrame()
 
     def CreateESDCard(self):
         dict1 = {
