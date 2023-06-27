@@ -54,6 +54,7 @@ with open("input.txt", 'r') as file:
 
 PASS_CARDS = []
 DISPLAY_CARDS = []
+RLD_STATUS = []
 for i in range(PASSES):
     pass_cards = Cards(PROGRAM_LENGTH[i].keys(),TOTAL_PASSES[i].SYMBOLS)
     pass_cards.ESD_CARD(TOTAL_PASSES[i].ESD_CARD_DICT_SD,TOTAL_PASSES[i].ESD_CARD_DICT_LD,TOTAL_PASSES[i].ESD_CARD_DICT_ER)
@@ -63,7 +64,12 @@ for i in range(PASSES):
     cards.CreateTXTCard()
     pass_cards.RLD_CARD(TOTAL_PASSES[i].TXT_CARDS_COMMENTS, TOTAL_PASSES[i].ESD_CARD_DICT_ER,
                         TOTAL_PASSES[i].ESD_CARD_DICT_SD, TOTAL_PASSES[i].ESD_CARD_DICT_LD, cards.TXT_DF)
-    cards.CreateRLDCard(pass_cards.ID_LISTS,pass_cards.FLAGS,pass_cards.ADD_REL)
+    try:
+        cards.CreateRLDCard(pass_cards.ID_LISTS,pass_cards.FLAGS,pass_cards.ADD_REL)
+        RLD_STATUS.append(0)
+    except:
+        RLD_STATUS.append(1)
+
     PASS_CARDS.append(pass_cards)
     DISPLAY_CARDS.append(cards)
 
@@ -75,7 +81,10 @@ for i in range(PASSES):
     print("---- TXT CARD ----")
     print(DISPLAY_CARDS[i].TXT_DF)
     print()
-    print("---- RLD CARD ----")
-    print(DISPLAY_CARDS[i].RLD_DF)
-    print()
+    if RLD_STATUS[i]:
+        print("SORRY!! 😔 This Algorithm is not able to print RLD CARD for given Instructions")
+    else:
+        print("---- RLD CARD ----")
+        print(DISPLAY_CARDS[i].RLD_DF)
+        print()
     print()

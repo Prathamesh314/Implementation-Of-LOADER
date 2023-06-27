@@ -19,6 +19,7 @@ class Cards:
         self.RLD_DICT = {}
         self.PROGRAM_LENGTH = PROGRAM_LENGTH
         self.ID = 2
+        self.J = 0
 
     def ESD_CARD(self, ESD_CARD_DICT_SD, ESD_CARD_DICT_LD, ESD_CARD_DICT_ER):
         for i in ESD_CARD_DICT_SD:
@@ -37,8 +38,8 @@ class Cards:
             for j in range(len(self.SYMBOLS)):
                 if i in self.SYMBOLS[j]:
                     FLAG = 1
-                    self.RELADD_LIST_PASS.append(self.SYMBOLS[j][0])
-            if FLAG:
+                    self.RELADD_LIST_PASS.append(str(self.SYMBOLS[j][0]))
+            if not(FLAG):
                 self.RELADD_LIST_PASS.append("--")
             self.LENGTH_PASS.append("--")
         for i in ESD_CARD_DICT_ER:
@@ -77,7 +78,7 @@ class Cards:
                                 num = int(_)
                             except:
                                 new_txt = new_txt.replace(_, "0")
-
+                new_txt = re.sub(r'^\D*0*(\d+).*', r'\1', new_txt)
                 self.ANS.append([eval(new_txt)])
                 self.COMMENTS.append([new_txt])
 
@@ -143,23 +144,29 @@ class Cards:
                 if self.isOperator(var[i]) and i + 1 < len(var) and var[i + 1] not in NUMBERS:
                     sign.append(var[i])
             ALL_SIGNS.append(sign)
-
         for i, j in enumerate(INDICES.values()):
             d = {}
             for k in range(len(j)):
                 if j[k] not in NUMBERS:
-                    d[j[k]] = ALL_SIGNS[i][k]
+                    try:
+                        d[j[k]] = ALL_SIGNS[i][k]
+                    except:
+                        pass
+
             FLAGS_DICT.append(d)
 
-        J = 0
+
         temp_dict = {}
         for i, j in INDICES.items():
             for _ in j:
                 if _ not in NUMBERS and _ in temp_dict:
                     break
                 elif _ not in NUMBERS and _ not in temp_dict:
-                    temp_dict[_] = relADDRESSES[J]
-                    J += 1
+                    try:
+                        temp_dict[_] = relADDRESSES[self.J]
+                        self.J += 1
+                    except:
+                        pass
 
         for i in FLAGS_DICT:
             for j in i:
@@ -170,4 +177,7 @@ class Cards:
                 elif j in ESD_CARD_DICT_LD:
                     self.ID_LISTS.append("01")
                 self.FLAGS.append(i[j])
-                self.ADD_REL.append([temp_dict[j]])
+                try:
+                    self.ADD_REL.append([temp_dict[j]])
+                except:
+                    pass
