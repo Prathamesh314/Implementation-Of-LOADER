@@ -78,7 +78,6 @@ class Cards:
                                 num = int(_)
                             except:
                                 new_txt = new_txt.replace(_, "0")
-                # new_txt = re.sub(r'^\D*0*(\d+).*', r'\1', new_txt)
                 self.ANS.append([eval(new_txt)])
                 self.COMMENTS.append([new_txt])
 
