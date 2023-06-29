@@ -91,5 +91,4 @@ for i in range(PASSES):
         print(DISPLAY_CARDS[i].RLD_DF)
 
         print()
-    print(DISPLAY_CARDS[i].RLD_DF)
     print()
