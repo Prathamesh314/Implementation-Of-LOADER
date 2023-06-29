@@ -34,6 +34,8 @@ class DisplayCards():
         self.TXT_DF = pd.DataFrame(dict2)
 
     def CreateRLDCard(self,ID_LISTS,FLAGS,ADD_REL):
+        if len(ADD_REL) != len(ID_LISTS):
+            ADD_REL.append(ADD_REL[-1])
         dict3 = {
             "ESD Id":ID_LISTS,
             "FLAG":FLAGS,

@@ -69,7 +69,10 @@ for i in range(PASSES):
         RLD_STATUS.append(0)
     except:
         RLD_STATUS.append(1)
-
+    cards.CreateRLDCard(pass_cards.ID_LISTS,pass_cards.FLAGS,pass_cards.ADD_REL)
+    # print(pass_cards.ID_LISTS)
+    # print(pass_cards.FLAGS)
+    # print(pass_cards.ADD_REL)
     PASS_CARDS.append(pass_cards)
     DISPLAY_CARDS.append(cards)
 
@@ -86,5 +89,7 @@ for i in range(PASSES):
     else:
         print("---- RLD CARD ----")
         print(DISPLAY_CARDS[i].RLD_DF)
+
         print()
+    print(DISPLAY_CARDS[i].RLD_DF)
     print()
