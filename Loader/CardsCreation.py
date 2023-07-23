@@ -3,6 +3,9 @@ import re
 class Cards:
     def __init__(self, PROGRAM_LENGTH, SYMBOLS):
         self.SYMBOLS = SYMBOLS
+        self.SYMBOLS_DICT = {}
+        for i in self.SYMBOLS:
+            self.SYMBOLS_DICT[i[1]] = i[0]
         self.NAME_LIST_PASS = []
         self.TYPES_LIST_PASS = []
         self.ID_LIST_PASS = []
@@ -68,16 +71,25 @@ class Cards:
                 # evaluation = 0
                 self.RESULT.append(result)
                 # replace Symbols with their values and apply eval() function
-                for sym in self.SYMBOLS:
-                    for _ in result:
-                        if _ in sym:
-                            new_txt = new_txt.replace(_, str(sym[0]))
-                        else:
-                            # new_txt = new_txt.replace(_,"0")
-                            try:
+                # for sym in self.SYMBOLS_DICT:
+                #     flag = 0
+                #     for _ in result:
+                #         if _ not in sym:
+                #             new_txt = new_txt.replace(_, str(self.SYMBOLS_DICT[sym]))
+                #         else:
+                #             # new_txt = new_txt.replace(_,"0")
+                #             try:
+                #                 num = int(_)
+                #             except:
+                #                 new_txt = new_txt.replace(_, "0")
+                for _ in result:
+                    if _ in self.SYMBOLS_DICT:
+                        new_txt = new_txt.replace(_, str(self.SYMBOLS_DICT[_]))
+                    else:
+                        try:
                                 num = int(_)
-                            except:
-                                new_txt = new_txt.replace(_, "0")
+                        except:
+                            new_txt = new_txt.replace(_, "0")
                 self.ANS.append([eval(new_txt)])
                 self.COMMENTS.append([new_txt])
 

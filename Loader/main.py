@@ -92,3 +92,6 @@ for i in range(PASSES):
 
         print()
     print()
+
+    # print(TOTAL_PASSES[1].SYMBOLS)
+    # print(TOTAL_PASSES[1].TXT_CARDS_COMMENTS)
