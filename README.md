@@ -12,9 +12,9 @@
     <th>RLD CARD PASS I</th>
   </tr>
   <tr>
-    <td><img src="Images/ESD-CARD-PASS-I.png" /></td>
-    <td><img src="Images/TXT-CARD-PASS-I.png" /></td>
-    <td><img src="Images/RLD-CARD-PASS-I.png" /></td>
+    <td><img src="Images/ESD_I.png" /></td>
+    <td><img src="Images/TXT_I.png" /></td>
+    <td><img src="Images/RLD_I.png" /></td>
   </tr>
   <br>
   <tr>
@@ -23,8 +23,8 @@
     <th>RLD CARD PASS II</th>
   </tr>
   <tr>
-    <td><img src="Images/ESD-CARD-PASS-II.png" /></td>
-    <td><img src="Images/TXT-CARD-PASS-II.png" /></td>
-    <td><img src="Images/RLD-CARD-PASS-II.png" /></td>
+    <td><img src="Images/ESD_II.png" /></td>
+    <td><img src="Images/TXT_II.png" /></td>
+    <td><img src="Images/RLD_II.png" /></td>
   </tr>
 </table>
